@@ -59,7 +59,7 @@ for dir in ${bckp[@]}; do
 	wait # Wait for previous delete not to upload it again 
 
 	echo "Check tar.gz archive: $sync_dir/${dir%/raw}.tar.gz"
-	if tar -tzf $sync_dir/${dir%/raw}.tar.gz >/dev/null; then
+	if tar -tzf $sync_dir/${dir%/raw}.tar.gz >/dev/null; then # Check if tar.gz is not corrupted
 		echo "Archive is OK, going to sync."
 
 		echo "Get time, md5sum and file size"
@@ -72,7 +72,7 @@ for dir in ${bckp[@]}; do
 		# Comparing name and file size
 		# Note: this will work only for big files; still, we might get a match by accident
 		# Note: I wasn't able to do this comparison using hashes (md5, sha1, sha256) - every compression the tar.gz had different hash
-		if `grep -w ${dir%/raw}.tar.gz $manifest | grep -q -w $filesize`; then
+		if `grep -w ${dir%/raw}.tar.gz $manifest | grep -q -w $filesize`; then # Check if we have seen an exact file name with and exact file size
 			echo "Warning: ${dir%/raw}.tar.gz has been already uploaded before (same file_name and file_size); not going to sync."
 		else
 			echo "Syncing $sync_dir/${dir%/raw}.tar.gz to storage class $class"
