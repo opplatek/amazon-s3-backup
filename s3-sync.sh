@@ -66,8 +66,6 @@ for dir in ${bckp[@]}; do
 		date=`date`
 		md5sum=`md5sum $sync_dir/${dir%/raw}.tar.gz | cut -d' ' -f1`
 		filesize=$(stat -c%s "$sync_dir/${dir%/raw}.tar.gz")
-		printf "%b\n" "date\tsource_dir\tfile_name\tfile_size\tmd5sum\tbucket" >> $manifest
-		printf "%s\t%s\t%s\t%s\t%s\t%b\n" "$date" "$main_dir/$dir" "${dir%/raw}.tar.gz" "$filesize" "$md5sum" "$bucket" >> $manifest
 
 		# Comparing name and file size
 		# Note: this will work only for big files; still, we might get a match by accident
@@ -75,6 +73,9 @@ for dir in ${bckp[@]}; do
 		if `grep -w ${dir%/raw}.tar.gz $manifest | grep -q -w $filesize`; then # Check if we have seen an exact file name with and exact file size
 			echo "Warning: ${dir%/raw}.tar.gz has been already uploaded before (same file_name and file_size); not going to sync."
 		else
+        	        printf "%b\n" "date\tsource_dir\tfile_name\tfile_size\tmd5sum\tbucket" >> $manifest
+	                printf "%s\t%s\t%s\t%s\t%s\t%b\n" "$date" "$main_dir/$dir" "${dir%/raw}.tar.gz" "$filesize" "$md5sum" "$bucket" >> $manifest
+
 			echo "Syncing $sync_dir/${dir%/raw}.tar.gz to storage class $class"
 			if [ $upload = "sync" ]; then
 				echo "Doing sync"
@@ -86,9 +87,9 @@ for dir in ${bckp[@]}; do
 				echo "Didn't recognize upload: $upload, doing sync (default)"
 				aws s3 sync $sync_dir $bucket --storage-class $class
 			fi
+			echo "Done syncing: $sync_dir/${dir%/raw}.tar.gz"
 		fi
 
-		echo "Done syncing: $sync_dir/${dir%/raw}.tar.gz"
         else
                 echo "Error: there is something wrong with: $sync_dir/${dir%/raw}.tar.gz. NOT going to sync."
                 echo "Error: backup didn't finish." >> $manifest
