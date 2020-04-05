@@ -151,29 +151,3 @@ date	source_dir	name	file_size	md5sum	bucket
 Sat Apr  4 17:08:38 EDT 2020	/home/joppelt/projects/ribothrypsis/data/minion/20200219-hsa.dRNASeq.HeLa.total.REL5.long.REL3.9/raw	20200219-hsa.dRNASeq.HeLa.total.REL5.long.REL3.9.tar.gz	1620341362	5b75e3511be079d5222757d69645593a	s3://ribothrypsis-data-nanopore
 date	source_dir	name	file_size	md5sum	bucket
 Sat Apr  4 17:43:11 EDT 2020	/home/joppelt/projects/ribothrypsis/data/minion/20200227-hsa.dRNASeq.HeLa.total.REL5.long.REL3.10/raw	20200227-hsa.dRNASeq.HeLa.total.REL5.long.REL3.10.tar.gz	49881894369	177a2d00daf736f26cd9f432f5f2ab2d	s3://ribothrypsis-data-nanopore
-------------------------------------------
-Backup of:
-adapters
-degradation-levels
-dist-from-annot
-dist-from-annot-ends
-distro-on-meta-gene
-gene-levels
-gene-ontology
-genomic-distro
-isoforms
-nt-composition
-other
-polya-len
-primer_design
-protein-levels
-qc-general
-rel5-size-distro
-rel-pos-distro
-rel-pos-to-gquad
-riboseq-distro
-size-distro
-spikein
-transcript-coverage
-Backup started on: Sun Apr  5 12:55:40 EDT 2020
-Backup to: s3://ribothrypsis-analysis-jan
