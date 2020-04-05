@@ -1,0 +1,8 @@
+*.out
+*test/
+*.gz
+test*/
+logs/
+restored*/
+tmp
+tmp/
