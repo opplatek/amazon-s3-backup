@@ -2,7 +2,6 @@
 #
 # Somehow simple backup of directories to Amazon S3 storage
 #
-delete
 
 #main_dir="/home/mns/workspace/projects/ribothrypsis/data/minion"
 main_dir="/home/joppelt/projects/ribothrypsis/analysis"
