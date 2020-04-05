@@ -1,0 +1,15 @@
+{
+    "Rules": [
+        {
+            "Status": "Enabled",
+            "Prefix": "",
+            "Transitions": [
+                {
+                    "Days": 0,
+                    "StorageClass": "GLACIER"
+                }
+            ],
+            "ID": "Move zero day old (immediately) files to Glacier"
+        }
+    ]
+}
