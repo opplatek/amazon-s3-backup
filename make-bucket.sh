@@ -8,7 +8,7 @@ i=$1
 
 echo "Making S3 bucket: $i"
 
-aws s3 mb s3://$ribothrypsis-analysis-jan --region us-east-1
+aws s3 mb s3://$i --region us-east-1
 
 aws s3api put-bucket-encryption --bucket $i --server-side-encryption-configuration '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]}'
 
