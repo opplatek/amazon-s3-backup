@@ -78,13 +78,13 @@ for dir in ${bckp[@]}; do
 
 			echo "Syncing $sync_dir/${dir%/raw}.tar.gz to storage class $class"
 			if [ $upload = "sync" ]; then
-				echo "Doing sync"
+				echo "Doing aws s3 sync."
 				aws s3 sync $sync_dir $bucket --storage-class $class # If we want to upload only new or modified files
 			elif [ $upload = "cp" ]; then
-				echo "Doing cp"
+				echo "Doing aws s3 cp."
 				aws s3 cp $sync_dir $bucket --storage-class $class --recursive # If we want to simply upload a file/files (--recursive - uploads ALL files)
 			else
-				echo "Didn't recognize upload: $upload, doing sync (default)"
+				echo "Didn't recognize upload: $upload, doing aws s3 sync (default)."
 				aws s3 sync $sync_dir $bucket --storage-class $class
 			fi
 			echo "Done syncing: $sync_dir/${dir%/raw}.tar.gz"
