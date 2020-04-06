@@ -151,3 +151,73 @@ date	source_dir	name	file_size	md5sum	bucket
 Sat Apr  4 17:08:38 EDT 2020	/home/joppelt/projects/ribothrypsis/data/minion/20200219-hsa.dRNASeq.HeLa.total.REL5.long.REL3.9/raw	20200219-hsa.dRNASeq.HeLa.total.REL5.long.REL3.9.tar.gz	1620341362	5b75e3511be079d5222757d69645593a	s3://ribothrypsis-data-nanopore
 date	source_dir	name	file_size	md5sum	bucket
 Sat Apr  4 17:43:11 EDT 2020	/home/joppelt/projects/ribothrypsis/data/minion/20200227-hsa.dRNASeq.HeLa.total.REL5.long.REL3.10/raw	20200227-hsa.dRNASeq.HeLa.total.REL5.long.REL3.10.tar.gz	49881894369	177a2d00daf736f26cd9f432f5f2ab2d	s3://ribothrypsis-data-nanopore
+------------------------------------------
+Backup of:
+adapters
+degradation-levels
+dist-from-annot
+dist-from-annot-ends
+distro-on-meta-gene
+gene-levels
+gene-ontology
+genomic-distro
+isoforms
+nt-composition
+other
+polya-len
+primer_design
+protein-levels
+qc-general
+rel5-size-distro
+rel-pos-distro
+rel-pos-to-gquad
+riboseq-distro
+size-distro
+spikein
+transcript-coverage
+Backup started on: Sun Apr  5 20:13:41 EDT 2020
+Backup to: s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 20:24:01 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/adapters	adapters.tar.gz	5734835231	7a540258e236d3a073d2b669b508595c	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 20:36:03 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/degradation-levels	degradation-levels.tar.gz	5236087892	6f526e7fdfc4f2239564be041a3ed041	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 21:16:07 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/dist-from-annot	dist-from-annot.tar.gz	17041102715	3920cc368ce84d154f10320b970d88bc	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 21:22:16 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/dist-from-annot-ends	dist-from-annot-ends.tar.gz	6982551	b8c578451fec0e30c7a62a5290fb7efe	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 21:59:18 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/distro-on-meta-gene	distro-on-meta-gene.tar.gz	14499607106	37c64e2dfbd5dcba4f5e477eb05dea0c	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 22:04:44 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/gene-levels	gene-levels.tar.gz	66412358	92be4ae9a09cc8cbb15c237ab7cba396	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 22:05:09 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/gene-ontology	gene-ontology.tar.gz	26842479	a6c9c50f7c498e98e2c209f7224a4017	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 22:05:11 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/genomic-distro	genomic-distro.tar.gz	20144	bae8adffa515637e5fc58424bba42c23	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 22:11:42 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/isoforms	isoforms.tar.gz	1144601783	f61f874807a063374e80479b34a88bda	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 22:12:08 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/nt-composition	nt-composition.tar.gz	5813541	c5deb38f5f106b3bb975db1d2ebb5fc0	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 22:12:09 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/other	other.tar.gz	8914	c0aa4c6aa94212ee008e3ba4b222998a	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 22:17:09 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/polya-len	polya-len.tar.gz	2556759530	7e29ee588962a69efdd0d362e745ed06	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 22:18:05 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/primer_design	primer_design.tar.gz	18194	f92c9b82d10455e014395c9121a3782e	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 22:18:34 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/protein-levels	protein-levels.tar.gz	219412399	ecd26d1a2303fbbc1e456c660c59df27	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 22:55:12 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/qc-general	qc-general.tar.gz	57480893443	d8515bd79cd3571494484c0976d5cb1b	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 23:15:50 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/rel5-size-distro	rel5-size-distro.tar.gz	15367	3f6fbc796fee32acbfb9785828c9e4e3	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 23:15:55 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/rel-pos-distro	rel-pos-distro.tar.gz	3911115	d45bbaf9e4c82e028c98105e7d63fb15	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 23:15:56 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/rel-pos-to-gquad	rel-pos-to-gquad.tar.gz	3056855	8001f675ebd819f9c360ad13abd2d9e1	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 23:15:58 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/riboseq-distro	riboseq-distro.tar.gz	132202	1f8ff5490c4210e275caea105b22bf57	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 23:15:59 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/size-distro	size-distro.tar.gz	24935	3d32b18ad028e7f7802786d0582d8a36	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Sun Apr  5 23:17:27 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/spikein	spikein.tar.gz	1850617407	7f97e6f934e25849a1b5cf9161763159	s3://ribothrypsis-analysis-jan
+date	source_dir	file_name	file_size	md5sum	bucket
+Mon Apr  6 00:22:44 EDT 2020	/home/joppelt/projects/ribothrypsis/analysis/transcript-coverage	transcript-coverage.tar.gz	76691375101	ae31e3176246c1a508582ef7fc3f4941	s3://ribothrypsis-analysis-jan
