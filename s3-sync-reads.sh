@@ -107,9 +107,12 @@ done
 
 cp $main_dir/20200227-hsa.dRNASeq.HeLa.total.REL5.long.REL3.10/run_guppy.sh $sync_dir/
 
-aws s3 cp $sync_dir $bucket --recursive
+aws s3 cp $sync_dir $bucket --recursive --storage-class $class
 
 echo "Uploading manifest"
 aws s3 cp $manifest $bucket
 
+rm $sync_dir/*
+
 echo "All done"
+
