@@ -7,7 +7,7 @@
 main_dir="/home/joppelt/projects/ribothrypsis/data/minion"
 sync_dir="/home/joppelt/playground/glacier_test"
 bucket="s3://ribothrypsis-data-nanopore"
-manifest="/home/joppelt/playground/s3-sync-manifest.reads.log" # File to keep track of what was backed up
+manifest="/home/joppelt/playground/logs/s3-sync-manifest.reads.log" # File to keep track of what was backed up
 
 class="GLACIER" # ["GLACIER"|"STANDARD"] 
 upload="cp" # ["sync"|"cp"] sync to upload only new/change files (slower but doesn't upload all) or cp to upload all the files (faster but uploads all)
@@ -111,6 +111,7 @@ aws s3 cp $sync_dir $bucket --recursive --storage-class $class
 
 echo "Uploading manifest"
 aws s3 cp $manifest $bucket
+aws s3 cp $0 $bucket
 
 rm $sync_dir/*
 

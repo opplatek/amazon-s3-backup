@@ -44,3 +44,59 @@ date	source_dir	file_name	file_size	md5sum	bucket
 Tue Apr 14 16:59:14 EDT 2020	/home/mns/workspace/projects/ribothrypsis/analysis/rel-pos-to-gquad	rel-pos-to-gquad.tar.gz	4428630	6243b76e91dba79d89a574c37526bb2b	s3://ribothrypsis-analysis-manolis
 date	source_dir	file_name	file_size	md5sum	bucket
 Tue Apr 14 16:59:17 EDT 2020	/home/mns/workspace/projects/ribothrypsis/analysis/size-distro	size-distro.tar.gz	6512429	f528e18f9b323651f83c1ce8aee8a5cb	s3://ribothrypsis-analysis-manolis
+------------------------------------------
+Backup of:
+akron_counts_on_snRNAs
+akron_polyA_counts
+codon_adaptation
+codon_composition
+conservation
+correlations
+dist_from_codon
+distro_on_meta_gene
+genomic_distro
+GO_analysis
+gquad_pred
+mirnas
+motif
+nt_composition
+orf_distro
+pacbio_dist_from_exons
+pacbio_sizes
+pacbio_tails_composition
+read_counts
+relative_pos_distro
+sample_correlation
+secondary_structure
+size_distro
+stability
+Backup started on: Wed Apr 15 12:39:59 EDT 2020
+Backup to: s3://akron-analysis-manolis
+------------------------------------------
+Backup of:
+akron_counts_on_snRNAs
+akron_polyA_counts
+codon_adaptation
+codon_composition
+conservation
+correlations
+dist_from_codon
+distro_on_meta_gene
+genomic_distro
+GO_analysis
+gquad_pred
+mirnas
+motif
+nt_composition
+orf_distro
+pacbio_dist_from_exons
+pacbio_sizes
+pacbio_tails_composition
+read_counts
+relative_pos_distro
+sample_correlation
+secondary_structure
+size_distro
+stability
+Backup started on: Wed Apr 15 12:42:50 EDT 2020
+Backup to: s3://akron-analysis-manolis
