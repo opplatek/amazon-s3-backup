@@ -6,3 +6,5 @@ logs/
 restored*/
 tmp
 tmp/
+list
+glacier-files.txt
