@@ -7,7 +7,9 @@ main_dir="/home/joppelt/projects/pirna_mouse"
 dirs=(
     "data"
     "data/illumina"
-    ) # make this automatic
+    )
+
+###
 
 author="jan"
 
