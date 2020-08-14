@@ -17,9 +17,6 @@ manifest="/home/joppelt/playground/logs/${bucket}.s3-backup-manifest.log" # File
 
 manifest_bucket="s3-backup-manifest"
 
-echo "Starting compressing and archiving for the following subdirectories:"
-echo ${dirs[*]} | sed 's/ /\n/g'
-
 for bckp_main in ${dirs[@]}; do
     echo "Making backup of dir: $bckp_main"
 
@@ -56,7 +53,7 @@ for bckp_main in ${dirs[@]}; do
 
     echo "Main directory with the directories to backup: $main_dir"
 
-    echo "Starting compressing and archiving for the following subdirectories:"
+    echo "Starting compressing and archiving for the following directories:"
     echo ${bckp[*]} | sed 's/ /\n/g'
 
     mkdir -p $(dirname $manifest)
