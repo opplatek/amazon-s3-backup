@@ -1,0 +1,12 @@
+# Specify the files to be backed up.
+# Below command will backup everything inside the project folder
+git add --all . # This adds new files and removes the old one, default in Git 2.x
+#find . -name '*.sh' -o -name 'README.txt' -o -regex '.*readme\.txt' -o -regex '.*info\.txt' | xargs git add -A # Add only specific files; https://stackoverflow.com/questions/2855140/recursively-add-files-by-pattern
+# You can also use specific files using the command git add file1 file2 ..
+# Committing to the local repository with a message containing the time details
+curtime=`date`
+git commit -m "Automatic Backup @ $curtime"
+#git commit -a # If we have "unstaged" commits we can run this
+
+# Push the local snapshot to a remote destination
+git push origin master

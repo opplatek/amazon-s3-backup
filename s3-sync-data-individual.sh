@@ -48,6 +48,10 @@ mkdir -p $(dirname $manifest)
 # Get manifest from the bucket (if exists); if not, it just fails with "fatal error: An error occurred (404) when calling the HeadObject operation: Key "manifest.log" does not exist"
 aws s3 cp s3://${manifest_bucket}/$(basename $manifest) ${manifest}
 
+for dir in ${bckp[@]}; do
+    echo "Checking size of $dir and comparing it with the manifest file"
+    du -s $dir
+done
 
 echo "------------------------------------------" >> $manifest
 echo "Backup of:" >> $manifest
@@ -74,7 +78,7 @@ for dir in ${bckp[@]}; do
         # Comparing name and file size
         # Note: this will work only for big files; still, we might get a match by accident
         # Note: I wasn't able to do this comparison using hashes (md5, sha1, sha256) - every compression the tar.gz had different hash
-        if `grep -w ${bckp_main}/$(basename $dir).tar.gz $manifest | grep -q -w $filesize`; then # Check if we have seen an exact file name with and exact file size
+        if `grep -w ${bckp_main}/$(basename $dir).tar.gz $manifest | tail -1 | grep -q -w $filesize`; then # Check if we have seen an exact file name with and exact file size
             echo "Warning: ${bckp_main}/$(basename $dir).tar.gz has been already uploaded before (same file_name and file_size); not going to sync."
         else
             printf "%b\n" "date\tsource_dir\tfile_name\tfile_size\tmd5sum\tbucket" >> $manifest
@@ -113,8 +117,8 @@ done
 
 echo "Uploading manifest and sync script"
 aws s3 cp $manifest s3://${bucket}
-aws s3 cp $manifest s3://${manifest_bucket} && rm $manifest
-aws s3 cp $tmp_dir/$0 s3://${bucket}
+aws s3 cp $manifest s3://${manifest_bucket}
+aws s3 cp $0 s3://${bucket}
 
 wait
 
