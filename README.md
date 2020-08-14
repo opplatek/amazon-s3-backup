@@ -29,6 +29,7 @@ The `s3-sync-data.config` contains the _parent_ directory, subdirectories to bac
 
 ### Install AWS CLI
 Create Python3 virtual environment
+
 `python3 -m venv amazonS3
 source amazonS3/bin/activate
 which python
@@ -39,8 +40,11 @@ Get amazon aws cli and s3cmd and s3-pit-restore
 `python -m pip install awscli s3cmd s3-pit-restore`
 
 Get `empty_bucket.sh` to delete versioned buckets
+
 `wget https://gist.githubusercontent.com/wknapik/191619bfa650b8572115cd07197f3baf/raw/92519bba5df08082e9e62b392938bf8d625eacb7/empty_bucket.sh -O amazonS3/bin/empty_bucket.sh && chmod u+x amazonS3/bin/empty_bucket.sh`
+
 Install jq (for empty_bucket.sh)
+
 `sudo zypper install jq`
 
 
