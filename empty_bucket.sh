@@ -1,1 +1,0 @@
-amazonS3/bin/empty_bucket.sh

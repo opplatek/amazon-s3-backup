@@ -4,6 +4,12 @@ The main idea here is to backup only changed directories. If the directory has b
 
 All the information about the uploaded backup is stored in manifest file which help us to avoid unecessary compressing of directories already uploaded before.
 
+Use it as following:
+`./s3-sync-data-general.sh s3-sync-data.config`
+
+The `s3-sync-data.config` contains the _parent_ directory, subdirectories to backup and directories/files to exclude. It can contain author of the directories as well as basic s3 cli parameters (--storage-glass upon upload and type of upload cp/sync).
+
+
 ### Main workflow
 1. Decide on which directories to backup.
 2. Download manifest file if exists.
@@ -21,3 +27,7 @@ All the information about the uploaded backup is stored in manifest file which h
 4. Delete non-current version after 180 days. 
 
 * If applies, move the finished project to Deep Glacier manually
+
+### Notes
+File `lifecycle.json` is not used. It's just an example of json lifecycle configuration.
+Directory `bckp` contains older scripts, not used anymore.

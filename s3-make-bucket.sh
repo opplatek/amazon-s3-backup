@@ -3,7 +3,7 @@
 # Make bucket, put encryption, logging, versioning and life cycle
 #
 
-source /home/joppelt/playground/amazonS3/bin/activate
+source /home/joppelt/tools/amazonS3/bin/activate
 
 #i=ribothrypsis-analysis-jan
 i=$1
