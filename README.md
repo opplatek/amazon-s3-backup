@@ -9,7 +9,6 @@ Use it as following:
 
 The `s3-sync-data.config` contains the _parent_ directory, subdirectories to backup and directories/files to exclude. It can contain author of the directories as well as basic s3 cli parameters (--storage-glass upon upload and type of upload cp/sync).
 
-
 ### Main workflow
 1. Decide on which directories to backup.
 2. Download manifest file if exists.
@@ -27,6 +26,23 @@ The `s3-sync-data.config` contains the _parent_ directory, subdirectories to bac
 4. Delete non-current version after 180 days. 
 
 * If applies, move the finished project to Deep Glacier manually
+
+### Install AWS CLI
+Create Python3 virtual environment
+`python3 -m venv amazonS3
+source amazonS3/bin/activate
+which python
+python --version
+pip install --upgrade pip`
+
+Get amazon aws cli and s3cmd and s3-pit-restore
+`python -m pip install awscli s3cmd s3-pit-restore`
+
+Get `empty_bucket.sh` to delete versioned buckets
+`wget https://gist.githubusercontent.com/wknapik/191619bfa650b8572115cd07197f3baf/raw/92519bba5df08082e9e62b392938bf8d625eacb7/empty_bucket.sh -O amazonS3/bin/empty_bucket.sh && chmod u+x amazonS3/bin/empty_bucket.sh`
+Install jq (for empty_bucket.sh)
+`sudo zypper install jq`
+
 
 ### Notes
 File `lifecycle.json` is not used. It's just an example of json lifecycle configuration.
