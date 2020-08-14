@@ -1,0 +1,16 @@
+# Get region with ENSG00000109819
+for i in *.bam;do samtools view -@ 16 -bh $i 4:20755041-33904089 > ${i%.bam}.chr4.bam;done
+for i in *chr4.bam; do samtools index $i;done
+
+samtools merge -@ 20 brainv2.Homo_sapiens.GRCh38.91.sorted.added_transcriptsAligned.sortedByCoord.out.chr4.bam $(ls brain*v2.Homo_sapiens.GRCh38.91.sorted.added_transcriptsAligned.sortedByCoord.out.chr4.bam)
+samtools merge -@ 20 scrambledv2.Homo_sapiens.GRCh38.91.sorted.added_transcriptsAligned.sortedByCoord.out.chr4.bam $(ls scrambled*v2.Homo_sapiens.GRCh38.91.sorted.added_transcriptsAligned.sortedByCoord.out.chr4.bam)
+samtools merge -@ 20 refv2.Homo_sapiens.GRCh38.91.sorted.added_transcriptsAligned.sortedByCoord.out.chr4.bam $(ls ref*v2.Homo_sapiens.GRCh38.91.sorted.added_transcriptsAligned.sortedByCoord.out.chr4.bam)
+
+# there is one (at least) false-positive alignment (only 1 base overlap with exon after splicing)
+echo -n "NS500595:213:HFC3NBGX7:1:23104:4932:13953" > names.txt
+inbam="refv2.Homo_sapiens.GRCh38.91.sorted.added_transcriptsAligned.sortedByCoord.out.chr4.bam"
+inbam="ref1v2.Homo_sapiens.GRCh38.91.sorted.added_transcriptsAligned.sortedByCoord.out.chr4.bam"
+filterbyname.sh in=$inbam out=outbam.bam names=names.txt include=false
+mv $inbam ${inbam}.bckp
+mv outbam.bam $inbam
+samtools index $inbam
