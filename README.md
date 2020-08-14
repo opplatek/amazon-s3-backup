@@ -5,14 +5,14 @@ The main idea here is to backup only changed directories. If the directory has b
 All the information about the uploaded backup is stored in manifest file which help us to avoid unecessary compressing of directories already uploaded before.
 
 ### Main workflow
-1. Decide on which directories to backup
-2. Download manifest file if exists
-3. Compare directory size with manifest
-4. If the sizes are different, compress the directory
-5. Upload the compressed directory archive 
-6. Store the information about the upload to manifest
-7. Upload manifest and script
-8. Clean
+1. Decide on which directories to backup.
+2. Download manifest file if exists.
+3. Compare directory size with manifest.
+4. If the sizes are different, compress the directory.
+5. Upload the compressed directory archive.
+6. Store the information about the upload to manifest.
+7. Upload manifest and script.
+8. Clean.
 
 ### Lifecycle rules
 1. By default, upload goes to --storage-class STANDARD. 

@@ -1,43 +1,69 @@
 #!/bin/bash
 #
 # Somehow simple backup of directories to Amazon S3 storage
+# Accepts one and only one argument - config file with a single (main) directory to backup (main_dir) - will be used as bucket name 
+#    and a array of subdirectories (dirs); optionaly can have another array (exclude) with dirs to exclude from the backup
 #
 
-main_dir="/home/joppelt/projects/pirna_mouse"
-dirs=(
-    "data"
-    "data/illumina"
-    )
+# Now defined in config file
+# main_dir="/home/joppelt/projects/pirna_mouse"
+# dirs=(
+# "data"
+# "data/illumina"
+# )
 
 ###
 
 author="jan"
 
+class="STANDARD" # ["GLACIER"|"STANDARD"] 
+upload="cp" # ["sync"|"cp"] sync to upload only new/change files (slower but doesn't upload all) or cp to upload all the files (faster but uploads all)
+
+# Check if we are loading 
+if [ "$#" -ne 1 ]; then
+    echo "Illegal number of parameters. We need config file as the only argument."
+    exit 1
+else
+    source $1
+fi
+
 bucket=${author}-$(basename $main_dir) # Without s3://
 bucket=`echo $bucket | sed 's/_//g'` # aws cli doesn't like "_" in the bucket name
 manifest="/home/joppelt/playground/logs/${bucket}.s3-backup-manifest.log" # File to keep track of what was backed up
 
-manifest_bucket="s3-backup-manifest"
+manifest_bucket="s3-backup-manifest" # without s3://
 
 echo "Starting compressing and archiving for the following subdirectories:"
 echo ${dirs[*]} | sed 's/ /\n/g'
 
 for bckp_main in ${dirs[@]}; do
-    echo "Making backup of dir: $bckp_main"
+    echo "Making backup of dir: ${main_dir}/${bckp_main}"
 
     sync_dir="/home/joppelt/playground/s3_backup/$bckp_main"
 
-    class="STANDARD" # ["GLACIER"|"STANDARD"] 
-    upload="cp" # ["sync"|"cp"] sync to upload only new/change files (slower but doesn't upload all) or cp to upload all the files (faster but uploads all)
-
     #bckp=$(ls -d $main_dir/${bckp_main}/* | tr '' '\n' | grep -v external | sed "s|${main_dir}/||g")
-    if [ $bckp_main == "data/illumina" ] || [ $bckp_main == "data/minion" ]; then
-        bckp=$(ls -d $main_dir/${bckp_main}/* | tr '' '\n' | grep -v external) # Illumina and Minion will be backed up separately
-    else
-        bckp=$(ls -d $main_dir/${bckp_main}/* | tr '' '\n' | grep -v external | grep -v illumina | grep -v minion) # Illumina and Minion will be backed up separately
-    fi
+#    if [ $bckp_main == "data/illumina" ] || [ $bckp_main == "data/minion" ]; then
+#        bckp=$(ls -d $main_dir/${bckp_main}/* | tr '' '\n' | grep -v external) # Illumina and Minion will be backed up separately
+#    else
+#        bckp=$(ls -d $main_dir/${bckp_main}/* | tr '' '\n' | grep -v external | grep -v illumina | grep -v minion) # Illumina and Minion will be backed up separately
+#    fi
 
+    bckp=$(ls -d $main_dir/${bckp_main}/*)
     bckp=($bckp) # Convert string to array
+
+    # Remove directories in array $exclude if set
+    if [ -z ${exclude+x} ]; then 
+        echo "Backing up all directories, nothing in array \$exclude" 
+    else 
+        echo "Removed directories from backup: ${exclude[*]}"
+        for target in "${exclude[@]}"; do
+            for i in "${!bckp[@]}"; do
+                if [[ ${bckp[i]} = ${main_dir}/${bckp_main}/${target} ]]; then
+                    unset 'bckp[i]'
+                fi
+            done
+        done
+    fi
 
     ###
 
