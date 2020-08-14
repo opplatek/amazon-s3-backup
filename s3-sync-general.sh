@@ -67,6 +67,14 @@ for bckp_main in ${dirs[@]}; do
         done
     fi
 
+    # Change name of the backup subfolder if $name is defined in the config file
+    if [ -z ${name} ]; then
+        echo "Keeping destination folder name: ${bckp_main}."
+    else
+        echo "Changing destination folder name to: ${name}."
+        bckp_main=$name        
+    fi
+
     ###
 
     mkdir -p $sync_dir
