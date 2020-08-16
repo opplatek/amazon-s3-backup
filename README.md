@@ -43,7 +43,7 @@ Get `empty_bucket.sh` to delete versioned buckets
 
 `wget https://gist.githubusercontent.com/wknapik/191619bfa650b8572115cd07197f3baf/raw/92519bba5df08082e9e62b392938bf8d625eacb7/empty_bucket.sh -O amazonS3/bin/empty_bucket.sh && chmod u+x amazonS3/bin/empty_bucket.sh`
 
-Install jq (for empty_bucket.sh)
+Install jq (for `empty_bucket.sh`)
 
 `sudo zypper install jq`
 

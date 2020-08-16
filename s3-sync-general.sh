@@ -72,7 +72,7 @@ for bckp_main in ${dirs[@]}; do
         echo "Keeping destination folder name: ${bckp_main}."
     else
         echo "Changing destination folder name to: ${name}."
-        bckp_main=$name        
+        bckp_main=$name
     fi
 
     ###
@@ -87,7 +87,7 @@ for bckp_main in ${dirs[@]}; do
         echo "Bucket exists.."
     else
         echo "Bucket doesn't exist, making a new one."
-        /home/joppelt/playground/s3-make-bucket.sh $bucket
+        $(pwd)/s3-make-bucket.sh $bucket
     fi
 
     echo "Main directory with the directories to backup: $main_dir"
@@ -180,6 +180,8 @@ for bckp_main in ${dirs[@]}; do
     aws s3 cp $0 s3://${bucket}
 
     wait
+
+    rmdir $(dirname $sync_dir)
 done
 
 echo "All done"
