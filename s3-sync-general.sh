@@ -28,7 +28,7 @@ else
 fi
 
 bucket=${author}-$(basename $main_dir) # Without s3://
-bucket=`echo $bucket | sed 's/_//g'` # aws cli doesn't like "_" in the bucket name
+bucket=`echo $bucket | sed 's/_//g' | tr '[:upper:]' '[:lower:]'` # aws cli doesn't like "_" in the bucket name as well as uppercase letters
 manifest="$(pwd)/logs/${bucket}.s3-backup-manifest.log" # File to keep track of what was backed up
 
 manifest_bucket="s3-backup-manifest" # without s3://

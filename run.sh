@@ -51,42 +51,42 @@ echo "Main"
 ####################################################################################################
 echo "Manolis"
 
-echo "All directories - deep "
-./s3-sync-general.sh configs/mns/s3-sync-all.deep.config
+#echo "All directories - deep "
+#./s3-sync-general.sh configs/mns/s3-sync-all.deep.config
 
-echo "ribothrypsis"
-echo "data-local"
-./s3-sync-general.sh configs/mns/s3-sync-data-local.ribothrypsis.config
-echo "main"
-./s3-sync-general.sh configs/mns/s3-sync-main.ribothrypsis.config
-echo "analysis"
-./s3-sync-general.sh configs/mns/s3-sync-analysis.ribothrypsis.config
-echo "data"
-./s3-sync-general.sh configs/mns/s3-sync-data.ribothrypsis.config
-echo "samples"
-./s3-sync-general.sh configs/mns/s3-sync-samples.ribothrypsis.config
+# echo "ribothrypsis"
+# echo "data-local"
+# ./s3-sync-general.sh configs/mns/s3-sync-data-local.ribothrypsis.config
+# echo "main"
+# ./s3-sync-general.sh configs/mns/s3-sync-main.ribothrypsis.config
+# echo "analysis"
+# ./s3-sync-general.sh configs/mns/s3-sync-analysis.ribothrypsis.config
+# echo "data"
+# ./s3-sync-general.sh configs/mns/s3-sync-data.ribothrypsis.config
+# echo "samples"
+# ./s3-sync-general.sh configs/mns/s3-sync-samples.ribothrypsis.config
 
-echo "ribothrypsis_pirnas"
-echo "main"
-./s3-sync-general.sh configs/mns/s3-sync-main.ribothrypsis_pirnas.config
-echo "analysis"
-./s3-sync-general.sh configs/mns/s3-sync-analysis.ribothrypsis_pirnas.config
-echo "data"
-./s3-sync-general.sh configs/mns/s3-sync-data.ribothrypsis_pirnas.config
-echo "samples"
-./s3-sync-general.sh configs/mns/s3-sync-samples.ribothrypsis_pirnas.config
+# echo "ribothrypsis_pirnas"
+# echo "main"
+# ./s3-sync-general.sh configs/mns/s3-sync-main.ribothrypsis_pirnas.config
+# echo "analysis"
+# ./s3-sync-general.sh configs/mns/s3-sync-analysis.ribothrypsis_pirnas.config
+# echo "data"
+# ./s3-sync-general.sh configs/mns/s3-sync-data.ribothrypsis_pirnas.config
+# echo "samples"
+# ./s3-sync-general.sh configs/mns/s3-sync-samples.ribothrypsis_pirnas.config
 
-echo "fly_kc167"
-echo "data-local"
-./s3-sync-general.sh configs/mns/s3-sync-data-local.fly_kc167.config
-echo "main"
-./s3-sync-general.sh configs/mns/s3-sync-main.fly_kc167.config
-echo "analysis"
-./s3-sync-general.sh configs/mns/s3-sync-analysis.fly_kc167.config
-echo "data"
-./s3-sync-general.sh configs/mns/s3-sync-data.fly_kc167.config
-echo "samples"
-./s3-sync-general.sh configs/mns/s3-sync-samples.fly_kc167.config
+# echo "fly_kc167"
+# echo "data-local"
+# ./s3-sync-general.sh configs/mns/s3-sync-data-local.fly_kc167.config
+# echo "main"
+# ./s3-sync-general.sh configs/mns/s3-sync-main.fly_kc167.config
+# echo "analysis"
+# ./s3-sync-general.sh configs/mns/s3-sync-analysis.fly_kc167.config
+# echo "data"
+# ./s3-sync-general.sh configs/mns/s3-sync-data.fly_kc167.config
+# echo "samples"
+# ./s3-sync-general.sh configs/mns/s3-sync-samples.fly_kc167.config
 
 echo "fly_RK"
 echo "data-local"
@@ -136,7 +136,6 @@ echo "data"
 echo "samples"
 ./s3-sync-general.sh configs/mns/s3-sync-samples.akron.config
 
-
 ####################################################################################################
 echo "Panos"
 
@@ -144,14 +143,15 @@ echo "All directories - Ago, Akron, tools"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-all.ago.config
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-all.akron.config
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-all.tools.config
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-all.simulation.config
 
 echo " Miwi"
 echo "data-local"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.miwi.config  
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.miwi.config
 echo "data"
-./s3-sync-eneral.sh configs/pan.alexiou/s3-sync-data.miwi.config 
+./s3-sync-eneral.sh configs/pan.alexiou/s3-sync-data.miwi.config
 echo "main"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.miwi.config  
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.miwi.config
 echo "analysis"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.miwi.config
 echo "samples"
@@ -162,10 +162,22 @@ echo "data"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-data.small_projects-JWYG-Mov10CLIP.config
 echo "main"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.small_projects-JWYG-Mov10CLIP.config
-echo "Analysis"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.small_projects-JWYG-Mov10CLIP.config    
+echo "analysis"
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.small_projects-JWYG-Mov10CLIP.config
 echo "samples"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-samples.small_projects-JWYG-Mov10CLIP.config
+
+echo "DDX3"
+echo "data-local"
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.ddx3.config
+echo "main"
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.ddx3.config
+echo "analysis"
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.ddx3.config
+echo "samples"
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-samples.ddx3.config
+echo "data"
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-data.ddx3.config
 
 echo "Small projects"
 echo "KE-Mov10CLIP"
