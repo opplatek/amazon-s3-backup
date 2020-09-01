@@ -8,7 +8,7 @@ source /home/joppelt/tools/amazonS3/bin/activate
 
 #i=ribothrypsis-analysis-jan
 i=$1
-if [[ $# -e 2 ]]; then
+if [[ $# == 2 ]]; then
     log=$2
 else
     log='false' # default
@@ -20,10 +20,10 @@ aws s3 mb s3://$i --region us-east-1
 
 aws s3api put-bucket-encryption --bucket $i --server-side-encryption-configuration '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]}'
 
-if [[ $log=="true" ]]
+if [[ $log == "true" ]]; then
     echo "Logging: enabled."
     aws s3api put-bucket-logging --bucket $i --bucket-logging-status '{"LoggingEnabled":{"TargetPrefix":"S3logs/'$i'/","TargetBucket":"'mourelatos-lab-general'"}}'
-elif [[ $log=="false" ]]
+elif [[ $log == "false" ]]; then
     echo "Logging: disabled (default)."
 else
     echo "Don't know if logging should be enabled. Please use only 'true' or 'false' as a second argument for the script or use only one argument (defauls to 'false')"
