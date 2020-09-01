@@ -1,12 +1,18 @@
 #!/bin/bash
 #
 # Make bucket, put encryption, logging, versioning and life cycle
+# loggin is optional and only turned on if the second argument for the script is set as 'true'
 #
 
 source /home/joppelt/tools/amazonS3/bin/activate
 
 #i=ribothrypsis-analysis-jan
 i=$1
+if [[ $# -e 2 ]]; then
+    log=$2
+else
+    log='false' # default
+fi
 
 echo "Making S3 bucket: $i"
 
@@ -14,7 +20,15 @@ aws s3 mb s3://$i --region us-east-1
 
 aws s3api put-bucket-encryption --bucket $i --server-side-encryption-configuration '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "AES256"}}]}'
 
-aws s3api put-bucket-logging --bucket $i --bucket-logging-status '{"LoggingEnabled":{"TargetPrefix":"S3logs/'$i'/","TargetBucket":"'mourelatos-lab-general'"}}'
+if [[ $log=="true" ]]
+    echo "Logging: enabled."
+    aws s3api put-bucket-logging --bucket $i --bucket-logging-status '{"LoggingEnabled":{"TargetPrefix":"S3logs/'$i'/","TargetBucket":"'mourelatos-lab-general'"}}'
+elif [[ $log=="false" ]]
+    echo "Logging: disabled (default)."
+else
+    echo "Don't know if logging should be enabled. Please use only 'true' or 'false' as a second argument for the script or use only one argument (defauls to 'false')"
+    exit 1
+fi
 
 aws s3api put-bucket-versioning --bucket $i --versioning-configuration Status=Enabled
 
