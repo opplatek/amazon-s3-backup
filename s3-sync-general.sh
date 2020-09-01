@@ -37,6 +37,7 @@ echo "Starting compressing and archiving for the following subdirectories:"
 echo ${dirs[*]} | sed 's/ /\n/g'
 
 source /home/joppelt/tools/amazonS3/bin/activate
+re="^[0-9]+([.][0-9]+)?$" # For testing a number values with decimal points https://stackoverflow.com/questions/806906/how-do-i-test-if-a-variable-is-a-number-in-bash
 
 for bckp_main in ${dirs[@]}; do
     echo "Making backup of dir: ${main_dir}/${bckp_main}"
@@ -140,8 +141,6 @@ for bckp_main in ${dirs[@]}; do
     #        if `grep -w ${bckp_main}/$(basename $dir).tar.gz $manifest | tail -1 | grep -q -w $filesize`; then # Check if we have seen an exact file name with and exact file size
     #            echo "Warning: ${bckp_main}/$(basename $dir).tar.gz has been already uploaded before (same file_name and file_size); not going to sync."
     #        else
-                printf "%b\n" "date\tsource_name\tfile_name\tsource_size\tfile_size\tmd5sum\tbucket" >> $manifest
-                printf "%s\t%s\t%s\t%s\t%s\t%s\t%b\n" "$date" "$dir" "${bckp_main}/$(basename $dir).tar.gz" "$dirsize" "$filesize" "$md5sum" "s3://${bucket}" >> $manifest
 
                 echo "Syncing $sync_dir/$(basename $dir).tar.gz to storage class $class"
                 if [ $upload == "sync" ]; then
@@ -159,15 +158,19 @@ for bckp_main in ${dirs[@]}; do
 
                 # Check file size and compare it with the uploaded one
                 filesize_up=`aws s3 ls s3://$bucket/${bckp_main}/ | grep $(basename $dir).tar.gz | tail -1 | tr -s ' ' | cut -d ' ' -f3`
-                if [ "$filesize" -eq "$filesize_up" ]; then
-                   echo "The file sizes are matching, good! Seems like a good upload."
+                if [[ "$filesize_up" =~ $re ]] && [ "$filesize" -eq "$filesize_up" ]; then
+                    echo "The file sizes are matching, good! Seems like a good upload."
+
+                    # Add the upload to the manifest if sucesfull
+                    printf "%b\n" "date\tsource_name\tfile_name\tsource_size\tfile_size\tmd5sum\tbucket" >> $manifest
+                    printf "%s\t%s\t%s\t%s\t%s\t%s\t%b\n" "$date" "$dir" "${bckp_main}/$(basename $dir).tar.gz" "$dirsize" "$filesize" "$md5sum" "s3://${bucket}" >> $manifest
                 else
-                    echo "Warning: file sizes are NOT matching, please check the upload."
+                    echo "Warning: file sizes are NOT matching, please check the upload of: $(basename $dir).tar.gz" >> $manifest
                 fi
 
             else
                 echo "Error: there is something wrong with: $sync_dir/$(basename $dir).tar.gz. NOT going to sync."
-                echo "Error: backup didn't finish." >> $manifest
+                echo "Error, backup didn't finish for: $(basename $dir).tar.gz" >> $manifest
             fi
 
             rm $sync_dir/$(basename $dir).tar.gz &
