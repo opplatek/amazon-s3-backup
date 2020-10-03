@@ -58,7 +58,7 @@ To double check all our files are synced correctly you can list all the buckets 
 
 Check if we have backup of all the files:
 `for a in *.s3-backup-manifest.log; do
-    names=`echo ${a%.s3-backup-manifest.log}`.txt
+    names=\`echo ${a%.s3-backup-manifest.log}\`.txt
     names=all-bucket-list.${names}
     echo $names
 
