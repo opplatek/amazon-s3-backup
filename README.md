@@ -57,8 +57,8 @@ To double check all our files are synced correctly you can list all the buckets 
 `aws s3 ls | cut -d ' ' -f3 | while read list; do echo $list; aws s3 ls s3://${list} --recursive > all-bucket-list.${list}.txt; done`
 
 Check if we have backup of all the files:
-`for a in *.s3-backup-manifest.log; do
-    names=\`echo ${a%.s3-backup-manifest.log}\`.txt
+``for a in *.s3-backup-manifest.log; do
+    names=`echo ${a%.s3-backup-manifest.log}`.txt
     names=all-bucket-list.${names}
     echo $names
 
@@ -70,4 +70,4 @@ Check if we have backup of all the files:
             echo "NOT found"
         fi
     done
-done`
+done``
