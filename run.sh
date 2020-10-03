@@ -20,8 +20,6 @@ echo "Data"
 echo "Main"
 ./s3-sync-general.sh configs/s3-sync-main.ribothrypsis.config
 
-exit
-
 echo "rna_degradation"
 echo "Data local"
 ./s3-sync-general.sh configs/s3-sync-data-local.rna_degradation.config
@@ -33,8 +31,6 @@ echo "Data"
 ./s3-sync-general.sh configs/s3-sync-data.rna_degradation.config
 echo "Main"
 ./s3-sync-general.sh configs/s3-sync-main.rna_degradation.config
-
-exit
 
 echo "pirna_mouse"
 echo "Data local"
