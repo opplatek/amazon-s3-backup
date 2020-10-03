@@ -1,0 +1,5 @@
+2020-09-02 04:16:19    3409224 all/data.tar.gz
+2020-09-02 04:28:11 9832364821 all/tracks.tar.gz
+2020-09-02 04:31:25        988 all/website.tar.gz
+2020-09-02 04:31:26       1148 panos-ke-mov10clip.s3-backup-manifest.log
+2020-09-02 04:31:28       8643 s3-sync-general.sh

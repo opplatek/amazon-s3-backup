@@ -51,3 +51,23 @@ Install jq (for `empty_bucket.sh`)
 ### Notes
 File `lifecycle.json` is not used. It's just an example of json lifecycle configuration.
 Directory `bckp` contains older scripts, not used anymore.
+
+# List all the buckets and their content
+To double check all our files are synced correctly you can list all the buckets and their content with:
+`aws s3 ls | cut -d ' ' -f3 | while read list; do echo $list; aws s3 ls s3://${list} --recursive > all-bucket-list.${list}.txt; done`
+
+Check if we have backup of all the files:
+`for a in *.s3-backup-manifest.log; do
+    names=`echo ${a%.s3-backup-manifest.log}`.txt
+    names=all-bucket-list.${names}
+    echo $names
+
+    cat $a | grep "tar.gz" | cut -f3 | while read list;do 
+        echo $list
+        if grep -q $list $names; then
+            echo "OK, found"
+        else
+            echo "NOT found"
+        fi
+    done
+done`

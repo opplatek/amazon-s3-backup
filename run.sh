@@ -34,55 +34,55 @@ echo "Main"
 
 echo "pirna_mouse"
 echo "Data local"
-./s3-sync-general.sh configs/s3-sync-data-local.config
+./s3-sync-general.sh configs/s3-sync-data-local.pirna_mouse.config
 echo "Analysis"
-./s3-sync-general.sh configs/s3-sync-analysis.config
+./s3-sync-general.sh configs/s3-sync-analysis.pirna_mouse.config
 echo "Samples"
-./s3-sync-general.sh configs/s3-sync-samples.config
+./s3-sync-general.sh configs/s3-sync-samples.pirna_mouse.config
 echo "Data"
-./s3-sync-general.sh configs/s3-sync-data.config
+./s3-sync-general.sh configs/s3-sync-data.pirna_mouse.config
 echo "Main"
-./s3-sync-general.sh configs/s3-sync-main.config
+./s3-sync-general.sh configs/s3-sync-main.pirna_mouse.config
 
 ####################################################################################################
 echo "Manolis"
 
-#echo "All directories - deep "
-#./s3-sync-general.sh configs/mns/s3-sync-all.deep.config
+echo "All directories - deep "
+./s3-sync-general.sh configs/mns/s3-sync-all.deep.config
 
-# echo "ribothrypsis"
-# echo "data-local"
-# ./s3-sync-general.sh configs/mns/s3-sync-data-local.ribothrypsis.config
-# echo "main"
-# ./s3-sync-general.sh configs/mns/s3-sync-main.ribothrypsis.config
-# echo "analysis"
-# ./s3-sync-general.sh configs/mns/s3-sync-analysis.ribothrypsis.config
-# echo "data"
-# ./s3-sync-general.sh configs/mns/s3-sync-data.ribothrypsis.config
-# echo "samples"
-# ./s3-sync-general.sh configs/mns/s3-sync-samples.ribothrypsis.config
+echo "ribothrypsis"
+echo "data-local"
+./s3-sync-general.sh configs/mns/s3-sync-data-local.ribothrypsis.config
+echo "main"
+./s3-sync-general.sh configs/mns/s3-sync-main.ribothrypsis.config
+echo "analysis"
+./s3-sync-general.sh configs/mns/s3-sync-analysis.ribothrypsis.config
+echo "data"
+./s3-sync-general.sh configs/mns/s3-sync-data.ribothrypsis.config
+echo "samples"
+./s3-sync-general.sh configs/mns/s3-sync-samples.ribothrypsis.config
 
-# echo "ribothrypsis_pirnas"
-# echo "main"
-# ./s3-sync-general.sh configs/mns/s3-sync-main.ribothrypsis_pirnas.config
-# echo "analysis"
-# ./s3-sync-general.sh configs/mns/s3-sync-analysis.ribothrypsis_pirnas.config
-# echo "data"
-# ./s3-sync-general.sh configs/mns/s3-sync-data.ribothrypsis_pirnas.config
-# echo "samples"
-# ./s3-sync-general.sh configs/mns/s3-sync-samples.ribothrypsis_pirnas.config
+echo "ribothrypsis_pirnas"
+echo "main"
+./s3-sync-general.sh configs/mns/s3-sync-main.ribothrypsis_pirnas.config
+echo "analysis"
+./s3-sync-general.sh configs/mns/s3-sync-analysis.ribothrypsis_pirnas.config
+echo "data"
+./s3-sync-general.sh configs/mns/s3-sync-data.ribothrypsis_pirnas.config
+echo "samples"
+./s3-sync-general.sh configs/mns/s3-sync-samples.ribothrypsis_pirnas.config
 
-# echo "fly_kc167"
-# echo "data-local"
-# ./s3-sync-general.sh configs/mns/s3-sync-data-local.fly_kc167.config
-# echo "main"
-# ./s3-sync-general.sh configs/mns/s3-sync-main.fly_kc167.config
-# echo "analysis"
-# ./s3-sync-general.sh configs/mns/s3-sync-analysis.fly_kc167.config
-# echo "data"
-# ./s3-sync-general.sh configs/mns/s3-sync-data.fly_kc167.config
-# echo "samples"
-# ./s3-sync-general.sh configs/mns/s3-sync-samples.fly_kc167.config
+echo "fly_kc167"
+echo "data-local"
+./s3-sync-general.sh configs/mns/s3-sync-data-local.fly_kc167.config
+echo "main"
+./s3-sync-general.sh configs/mns/s3-sync-main.fly_kc167.config
+echo "analysis"
+./s3-sync-general.sh configs/mns/s3-sync-analysis.fly_kc167.config
+echo "data"
+./s3-sync-general.sh configs/mns/s3-sync-data.fly_kc167.config
+echo "samples"
+./s3-sync-general.sh configs/mns/s3-sync-samples.fly_kc167.config
 
 echo "fly_RK"
 echo "data-local"
