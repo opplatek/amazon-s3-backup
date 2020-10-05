@@ -4,14 +4,6 @@
 # Accepts one and only one argument - config file with a single (main) directory to backup (main_dir) - will be used as bucket name
 #    and a array of subdirectories (dirs); optionaly can have another array (exclude) with dirs to exclude from the backup
 #
-
-# Now defined in config file
-# main_dir="/home/joppelt/projects/pirna_mouse"
-# dirs=(
-# "data"
-# "data/illumina"
-# )
-
 ###
 
 author="jan"
