@@ -1,7 +1,9 @@
 #!/bin/bash
 #
 # Make bucket, put encryption, logging, versioning and life cycle
-# loggin is optional and only turned on if the second argument for the script is set as 'true'
+# Loggin is optional and only turned on if the second argument for the script is set as 'true'
+# keeping non-current version is optional, for example for data which you never want to delete 
+#   (non-current version are kept forever to avoid losing the data) - third argument to 'true'
 #
 
 source /home/joppelt/tools/amazonS3/bin/activate
@@ -12,6 +14,11 @@ if [[ $# == 2 ]]; then
     log=$2
 else
     log='false' # default
+fi
+if [[ $# == 3 ]]; then
+    keep=$3
+else
+    keep='false' # default
 fi
 
 echo "Making S3 bucket: $i"
@@ -32,8 +39,18 @@ fi
 
 aws s3api put-bucket-versioning --bucket $i --versioning-configuration Status=Enabled
 
-# Add archiving after 3 day from upload
+# Add archiving after 3 day from upload to glacier
+# The timing (90 to deep glacier and 270 to delete) is based on minimum time in storages - for glacier it's 90 days, for deep glacier it's 180 days
 #aws s3api put-bucket-lifecycle-configuration --bucket $i --lifecycle-configuration '{"Rules": [{"Status": "Enabled", "Prefix": "", "Transitions": [{"Days": 3, "StorageClass": "GLACIER"}], "ID": "Move files to Glacier after one day."}]}'
 # Add archiving after 3 days from upload and add move of noncurrent version to deep glacier after 90 days and expiration of non-current version after 180 days
-aws s3api put-bucket-lifecycle-configuration --bucket $i \
---lifecycle-configuration '{"Rules": [{"Status": "Enabled", "ID": "Move files to Glacier after 3 days,  non-current version to Deep Glacier after 90 days, remove non-current versions after 180 days.", "Prefix": "", "Transitions": [{"Days": 3, "StorageClass": "GLACIER"}], "NoncurrentVersionTransitions": [{"NoncurrentDays": 90, "StorageClass": "DEEP_ARCHIVE"}], "NoncurrentVersionExpiration": {"NoncurrentDays": 180}}]}'
+if [[ $keep == "true" ]]; then
+    echo "Never deleting non-current version."
+    # never deleting non-current (precious data)
+    aws s3api put-bucket-lifecycle-configuration --bucket $i \
+    --lifecycle-configuration '{"Rules": [{"Status": "Enabled", "ID": "Move files to Glacier after 3 days,  non-current version to Deep Glacier after 90 days, remove non-current versions after 270 days.", "Prefix": "", "Transitions": [{"Days": 3, "StorageClass": "GLACIER"}], "NoncurrentVersionTransitions": [{"NoncurrentDays": 90, "StorageClass": "DEEP_ARCHIVE"}]}]}'
+elif [[ $keep == "false" ]]; then
+    # deleting non-current version after 6 months
+    echo "Deleting non-current version after 180 days (default)."
+    aws s3api put-bucket-lifecycle-configuration --bucket $i \
+    --lifecycle-configuration '{"Rules": [{"Status": "Enabled", "ID": "Move files to Glacier after 3 days,  non-current version to Deep Glacier after 90 days, never remove non-current versions.", "Prefix": "", "Transitions": [{"Days": 3, "StorageClass": "GLACIER"}], "NoncurrentVersionTransitions": [{"NoncurrentDays": 90, "StorageClass": "DEEP_ARCHIVE"}], "NoncurrentVersionExpiration": {"NoncurrentDays": 180}}]}'
+fi

@@ -8,7 +8,7 @@
 
 author="jan"
 
-class="STANDARD" # ["GLACIER"|"STANDARD"]
+class="GLACIER" # ["GLACIER"|"STANDARD"]
 upload="cp" # ["sync"|"cp"] sync to upload only new/change files (slower but doesn't upload all) or cp to upload all the files (faster but uploads all)
 
 # Check if we are logging and making bucket name
@@ -90,7 +90,7 @@ for bckp_main in ${dirs[@]}; do
         echo "Bucket exists.."
     else
         echo "Bucket doesn't exist, making a new one."
-        $(pwd)/s3-make-bucket.sh $bucket
+        $(pwd)/s3-make-bucket.sh $bucket false true # make bucket, don't get logs, never delete non-current version
     fi
 
     echo "Main directory with the directories to backup: $main_dir"
