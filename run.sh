@@ -10,8 +10,7 @@ echo "Jan"
 
 echo "ribothrypsis"
 echo "Data local"
-#./s3-sync-general.sh configs/s3-sync-data-local.ribothrypsis.config
-./s3-sync-data.sh configs/s3-sync-data-local.ribothrypsis.config ribothrypsis-data-local
+./s3-sync-general.sh configs/s3-sync-data-local.ribothrypsis.config ribothrypsis-data-local
 echo "Analysis"
 ./s3-sync-general.sh configs/s3-sync-analysis.ribothrypsis.config
 echo "Samples"
@@ -23,8 +22,7 @@ echo "Main"
 
 echo "rna_degradation"
 echo "Data local"
-#./s3-sync-general.sh configs/s3-sync-data-local.rna_degradation.config
-./s3-sync-data.sh configs/s3-sync-data-local.rna_degradation.config rna_degradation-data-local
+./s3-sync-general.sh configs/s3-sync-data-local.rna_degradation.config rna_degradation-data-local
 echo "Analysis"
 ./s3-sync-general.sh configs/s3-sync-analysis.rna_degradation.config
 echo "Samples"
@@ -36,8 +34,7 @@ echo "Main"
 
 echo "pirna_mouse"
 echo "Data local"
-#./s3-sync-general.sh configs/s3-sync-data-local.pirna_mouse.config
-./s3-sync-data.sh configs/s3-sync-data-local.pirna_mouse.config pirna_mouse-data-local
+./s3-sync-general.sh configs/s3-sync-data-local.pirna_mouse.config pirna_mouse-data-local
 echo "Analysis"
 ./s3-sync-general.sh configs/s3-sync-analysis.pirna_mouse.config
 echo "Samples"
@@ -54,91 +51,85 @@ echo "All directories - deep "
 ./s3-sync-general.sh configs/mns/s3-sync-all.deep.config
 
 echo "ribothrypsis"
-echo "data-local"
-#./s3-sync-general.sh configs/mns/s3-sync-data-local.ribothrypsis.config
-./s3-sync-data.sh configs/mns/s3-sync-data-local.ribothrypsis.config ribothrypsis-data-local
-echo "main"
+echo "Data local"
+./s3-sync-general.sh configs/mns/s3-sync-data-local.ribothrypsis.config ribothrypsis-data-local
+echo "Main"
 ./s3-sync-general.sh configs/mns/s3-sync-main.ribothrypsis.config
-echo "analysis"
+echo "Analysis"
 ./s3-sync-general.sh configs/mns/s3-sync-analysis.ribothrypsis.config
-echo "data"
+echo "Data"
 ./s3-sync-general.sh configs/mns/s3-sync-data.ribothrypsis.config
-echo "samples"
+echo "Samples"
 ./s3-sync-general.sh configs/mns/s3-sync-samples.ribothrypsis.config
 
 echo "ribothrypsis_pirnas"
-echo "main"
+echo "Main"
 ./s3-sync-general.sh configs/mns/s3-sync-main.ribothrypsis_pirnas.config
-echo "analysis"
+echo "Analysis"
 ./s3-sync-general.sh configs/mns/s3-sync-analysis.ribothrypsis_pirnas.config
-echo "data"
+echo "Data"
 ./s3-sync-general.sh configs/mns/s3-sync-data.ribothrypsis_pirnas.config
-echo "samples"
+echo "Samples"
 ./s3-sync-general.sh configs/mns/s3-sync-samples.ribothrypsis_pirnas.config
 
 echo "fly_kc167"
-echo "data-local"
-#./s3-sync-general.sh configs/mns/s3-sync-data-local.fly_kc167.config
-./s3-sync-data.sh configs/mns/s3-sync-data-local.fly_kc167.config fly_kc167-data-local
-echo "main"
+echo "Data local"
+./s3-sync-general.sh configs/mns/s3-sync-data-local.fly_kc167.config fly_kc167-data-local
+echo "Main"
 ./s3-sync-general.sh configs/mns/s3-sync-main.fly_kc167.config
-echo "analysis"
+echo "Analysis"
 ./s3-sync-general.sh configs/mns/s3-sync-analysis.fly_kc167.config
-echo "data"
+echo "Data"
 ./s3-sync-general.sh configs/mns/s3-sync-data.fly_kc167.config
-echo "samples"
+echo "Samples"
 ./s3-sync-general.sh configs/mns/s3-sync-samples.fly_kc167.config
 
 echo "fly_RK"
-echo "data-local"
-#./s3-sync-general.sh configs/mns/s3-sync-data-local.fly_RK.config
-./s3-sync-data.sh configs/mns/s3-sync-data-local.fly_RK.config fly_RK-data-local
-echo "main"
+echo "Data local"
+./s3-sync-general.sh configs/mns/s3-sync-data-local.fly_RK.config fly_RK-data-local
+echo "Main"
 ./s3-sync-general.sh configs/mns/s3-sync-main.fly_RK.config
-echo "analysis"
+echo "Analysis"
 ./s3-sync-general.sh configs/mns/s3-sync-analysis.fly_RK.config
-echo "data"
+echo "Data"
 ./s3-sync-general.sh configs/mns/s3-sync-data.fly_RK.config
-echo "samples"
+echo "Samples"
 ./s3-sync-general.sh configs/mns/s3-sync-samples.fly_RK.config
 
 echo "mouse_FUS"
-echo "data-local"
-#./s3-sync-general.sh configs/mns/s3-sync-data-local.mouse_FUS.config
-./s3-sync-data.sh configs/mns/s3-sync-data-local.mouse_FUS.config mouse_FUS-data-local
-echo "main"
+echo "Data local"
+./s3-sync-general.sh configs/mns/s3-sync-data-local.mouse_FUS.config mouse_FUS-data-local
+echo "Main"
 ./s3-sync-general.sh configs/mns/s3-sync-main.mouse_FUS.config
-echo "analysis"
+echo "Analysis"
 ./s3-sync-general.sh configs/mns/s3-sync-analysis.mouse_FUS.config
-echo "data"
+echo "Data"
 ./s3-sync-general.sh configs/mns/s3-sync-data.mouse_FUS.config
-echo "samples"
+echo "Samples"
 ./s3-sync-general.sh configs/mns/s3-sync-samples.mouse_FUS.config
 
 echo "human_HRI"
-echo "data-local"
-#./s3-sync-general.sh configs/mns/s3-sync-data-local.human_HRI.config
-./s3-sync-data.sh configs/mns/s3-sync-data-local.human_HRI.config human_HRI-data-local
-echo "main"
+echo "Data local"
+./s3-sync-general.sh configs/mns/s3-sync-data-local.human_HRI.config human_HRI-data-local
+echo "Main"
 ./s3-sync-general.sh configs/mns/s3-sync-main.human_HRI.config
-echo "analysis"
+echo "Analysis"
 ./s3-sync-general.sh configs/mns/s3-sync-analysis.human_HRI.config
-echo "data"
+echo "Data"
 ./s3-sync-general.sh configs/mns/s3-sync-data.human_HRI.config
-echo "samples"
+echo "Samples"
 ./s3-sync-general.sh configs/mns/s3-sync-samples.human_HRI.config
 
 echo "akron"
-echo "data-local"
-#./s3-sync-general.sh configs/mns/s3-sync-data-local.akron.config
-./s3-sync-data.sh configs/mns/s3-sync-data-local.akron.config akron-data-local
-echo "main"
+echo "Data local"
+./s3-sync-general.sh configs/mns/s3-sync-data-local.akron.config akron-data-local
+echo "Main"
 ./s3-sync-general.sh configs/mns/s3-sync-main.akron.config
-echo "analysis"
+echo "Analysis"
 ./s3-sync-general.sh configs/mns/s3-sync-analysis.akron.config
-echo "data"
+echo "Data"
 ./s3-sync-general.sh configs/mns/s3-sync-data.akron.config
-echo "samples"
+echo "Samples"
 ./s3-sync-general.sh configs/mns/s3-sync-samples.akron.config
 
 ####################################################################################################
@@ -151,39 +142,39 @@ echo "All directories - Ago, Akron, tools"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-all.simulation.config
 
 echo " Miwi"
-echo "data-local"
-#./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.miwi.config
-./s3-sync-data.sh configs/pan.alexiou/s3-sync-data-local.miwi.config miwi-data-local
-echo "data"
+echo "Data local"
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.miwi.config miwi-data-local
+echo "Data"
 ./s3-sync-eneral.sh configs/pan.alexiou/s3-sync-data.miwi.config
-echo "main"
+echo "Main"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.miwi.config
-echo "analysis"
+echo "Analysis"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.miwi.config
-echo "samples"
+echo "Samples"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-samples.miwi.config
 
 echo "JWYG-Mov10CLIP"
-echo "data"
+echo "Data local"
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.small_projects-JWYG-Mov10CLIP.config jwyg-mov10clip-data-local
+echo "Data"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-data.small_projects-JWYG-Mov10CLIP.config
-echo "main"
+echo "Main"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.small_projects-JWYG-Mov10CLIP.config
-echo "analysis"
+echo "Analysis"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.small_projects-JWYG-Mov10CLIP.config
-echo "samples"
+echo "Samples"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-samples.small_projects-JWYG-Mov10CLIP.config
 
 echo "DDX3"
-echo "data-local"
-#./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.ddx3.config
-./s3-sync-data.sh configs/pan.alexiou/s3-sync-data-local.ddx3.config ddx3-data-local
-echo "main"
+echo "Data local"
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.ddx3.config ddx3-data-local
+echo "Main"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.ddx3.config
-echo "analysis"
+echo "Analysis"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.ddx3.config
-echo "samples"
+echo "Samples"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-samples.ddx3.config
-echo "data"
+echo "Data"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-data.ddx3.config
 
 echo "Small projects"
@@ -194,9 +185,9 @@ echo "m1A_peaks"
 echo "star_chimeric"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-all.small_projects-star_chimeric.config
 echo "chimeric_reads_paper"
-echo "data"
+echo "Data"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-data.small_projects-chimeric_reads_paper.config
-echo "main"
+echo "Main"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.small_projects-chimeric_reads_paper.config
-echo "analysis"
+echo "Analysis"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.small_projects-chimeric_reads_paper.config

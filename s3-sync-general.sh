@@ -6,10 +6,12 @@
 #
 ###
 
+# Default variables if they are not set in a config file
 author="jan"
-
 class="STANDARD" # ["GLACIER"|"STANDARD"]
 upload="cp" # ["sync"|"cp"] sync to upload only new/change files (slower but doesn't upload all) or cp to upload all the files (faster but uploads all)
+logs="false" # ["true"|"false"] # keep AWS operation logs
+keep="false" # ["true"|"false"] # keep all file versions forever
 
 # Check if we are logging and making bucket name
 if [ "$#" -gt 2 ]; then
@@ -21,6 +23,13 @@ elif [ "$#" -eq 2 ]; then
 elif [ "$#" -eq 1 ]; then
     source $1
 fi
+
+echo "Params check"
+echo $author
+echo $class
+echo $upload
+echo $logs
+echo $keep
 
 # check if we set bucket name in the command line/as parameter
 if [ -n "$bucket" ]; then
@@ -87,10 +96,16 @@ for bckp_main in ${dirs[@]}; do
     echo "Check if the destination bucket exists: $bucket"
 
     if `aws s3api list-buckets | grep -q -w $bucket`; then
-        echo "Bucket exists.."
+        echo "Bucket already exists."
     else
         echo "Bucket doesn't exist, making a new one."
-        $(pwd)/s3-make-bucket.sh $bucket
+        $(pwd)/s3-make-bucket.sh $bucket $logs $keep
+
+        if `aws s3api list-buckets | grep -q -w $bucket`; then # Check again if bucket was created
+            echo "Bucket creation confirmed."
+        else
+            echo "Bucket wasn't created, please check what happened, exiting." #; exit 2
+        fi
     fi
 
     echo "Main directory with the directories to backup: $main_dir"
@@ -175,8 +190,10 @@ for bckp_main in ${dirs[@]}; do
                 echo "Error, backup didn't finish for: $(basename $dir).tar.gz" >> $manifest
             fi
 
-            rm $sync_dir/$(basename $dir).tar.gz &
+            rm $sync_dir/$(basename $dir).tar.gz
         fi
+
+        rmdir $sync_dir # Clean temp upload directory
     done
 
     echo "Uploading manifest and sync script"
