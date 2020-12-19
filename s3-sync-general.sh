@@ -192,8 +192,6 @@ for bckp_main in ${dirs[@]}; do
 
             rm $sync_dir/$(basename $dir).tar.gz
         fi
-
-        rmdir $sync_dir # Clean temp upload directory
     done
 
     echo "Uploading manifest and sync script"
@@ -203,6 +201,7 @@ for bckp_main in ${dirs[@]}; do
 
     wait
 
+    rmdir $sync_dir # Clean temp upload directory
     rmdir $(dirname $sync_dir)
 done
 

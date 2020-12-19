@@ -1,0 +1,12 @@
+./s3-sync-general.sh configs/s3-sync-data-local.ribothrypsis.config ribothrypsis-data-local
+./s3-sync-general.sh configs/s3-sync-data-local.rna_degradation.config rna_degradation-data-local
+./s3-sync-general.sh configs/s3-sync-data-local.pirna_mouse.config pirna_mouse-data-local
+./s3-sync-general.sh configs/mns/s3-sync-data-local.ribothrypsis.config ribothrypsis-data-local
+./s3-sync-general.sh configs/mns/s3-sync-data-local.fly_kc167.config fly_kc167-data-local
+./s3-sync-general.sh configs/mns/s3-sync-data-local.fly_RK.config fly_RK-data-local
+./s3-sync-general.sh configs/mns/s3-sync-data-local.mouse_FUS.config mouse_FUS-data-local
+./s3-sync-general.sh configs/mns/s3-sync-data-local.human_HRI.config human_HRI-data-local
+./s3-sync-general.sh configs/mns/s3-sync-data-local.akron.config akron-data-local
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.miwi.config miwi-data-local
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.small_projects-JWYG-Mov10CLIP.config jwyg-mov10clip-data-local
+./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.ddx3.config ddx3-data-local
