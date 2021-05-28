@@ -10,8 +10,9 @@
 author="jan"
 class="STANDARD" # ["GLACIER"|"STANDARD"]
 upload="cp" # ["sync"|"cp"] sync to upload only new/change files (slower but doesn't upload all) or cp to upload all the files (faster but uploads all)
-logs="false" # ["true"|"false"] # keep AWS operation logs
+version="true" # ["true"|"false"] # keep all file versions (with lifecycle config)
 keep="false" # ["true"|"false"] # keep all file versions forever
+logs="false" # ["true"|"false"] # keep AWS operation logs
 
 # Check if we are logging and making bucket name
 if [ "$#" -gt 2 ]; then
@@ -28,8 +29,9 @@ echo "Params check"
 echo $author
 echo $class
 echo $upload
-echo $logs
+echo $version
 echo $keep
+echo $logs
 
 # check if we set bucket name in the command line/as parameter
 if [ -n "$bucket" ]; then
@@ -99,7 +101,7 @@ for bckp_main in ${dirs[@]}; do
         echo "Bucket already exists."
     else
         echo "Bucket doesn't exist, making a new one."
-        $(pwd)/s3-make-bucket.sh $bucket $logs $keep
+        $(pwd)/s3-make-bucket.sh $bucket $version $keep $logs
 
         if `aws s3api list-buckets | grep -q -w $bucket`; then # Check again if bucket was created
             echo "Bucket creation confirmed."
