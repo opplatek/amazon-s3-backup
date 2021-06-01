@@ -1,6 +1,0 @@
-2020-09-01 04:06:05        289 all/analysis.tar.gz
-2020-09-01 04:30:20 17184673927 all/data.tar.gz
-2020-09-01 04:36:09        286 all/run.tar.gz
-2020-09-01 04:36:10        288 all/samples.tar.gz
-2020-09-01 04:36:11       1222 panos-ago.s3-backup-manifest.log
-2020-09-01 04:36:12       8301 s3-sync-general.sh

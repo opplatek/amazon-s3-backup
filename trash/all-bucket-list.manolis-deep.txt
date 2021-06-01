@@ -1,6 +1,0 @@
-2020-08-24 05:18:20   54453096 all/analysis.tar.gz
-2020-08-24 05:18:33   24948907 all/data.tar.gz
-2020-08-24 05:19:10   56340920 all/dev.tar.gz
-2020-08-24 05:20:50  841791619 all/scratch.tar.gz
-2020-08-24 05:21:08       1206 manolis-deep.s3-backup-manifest.log
-2020-08-24 05:21:09       8243 s3-sync-general.sh

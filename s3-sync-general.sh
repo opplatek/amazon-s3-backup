@@ -4,6 +4,8 @@
 # Accepts one and only one argument - config file with a single (main) directory to backup (main_dir) - will be used as bucket name
 #    and a array of subdirectories (dirs); optionaly can have another array (exclude) with dirs to exclude from the backup
 #
+# TODO: Change to getopts or other "smart" argument processing https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+#
 ###
 
 # Default variables if they are not set in a config file
@@ -14,24 +16,52 @@ version="true" # ["true"|"false"] # keep all file versions (with lifecycle confi
 keep="false" # ["true"|"false"] # keep all file versions forever
 logs="false" # ["true"|"false"] # keep AWS operation logs
 
+# Test if one of the parameters is "--force"; ["true"|"false"] # force new backup even if old same size backup already exists
+if [[ "$*" == *"--force"* ]]
+then
+    force="true"
+else
+    force="false"
+fi
+
 # Check if we are logging and making bucket name
-if [ "$#" -gt 2 ]; then
-    echo "Illegal number of parameters. We need config file as the first argument, and optionaly bucket name as second."
+if [ "$#" -gt 3 ]; then
+    echo "Illegal number of parameters. We need config file as the first argument (mandatory), optionaly bucket name as second, and optionaly \"--force\" as last (second if bucket name is not used or third if it is) if forced upload is required."
     exit 1
-elif [ "$#" -eq 2 ]; then
+elif [ "$#" -eq 3 ]; then
     source $1
     bucket=$2
+elif [ "$#" -eq 2 ]; then
+    if [ "$force" == "false" ]; then
+        source $1
+        bucket=$2
+    elif [ "$force" == "true" ]; then
+        source $1
+    else
+        echo "Don't understand command-line parameters, please see help."
+        exit 1
+    fi        
 elif [ "$#" -eq 1 ]; then
+    if [ "$force" == "true" ]; then
+        echo "You specified only \"--force\" and no config file (required), please check help."
+        exit 1
+    fi    
     source $1
 fi
 
-echo "Params check"
-echo $author
-echo $class
-echo $upload
-echo $version
-echo $keep
-echo $logs
+echo -e "Params check\n-----------------"
+echo "Author: $author"
+echo "Backup class: $class"
+echo "Upload type: $upload"
+echo "Versioning: $version"
+echo "Keep old versions forever: $keep"
+echo "Keep logs: $logs"
+echo "Bucket (if specificed): $bucket"
+echo "Forced upload: $force"
+
+if [ "$force" == "true" ]; then
+    echo "Warning: \"--force\" was specified, going to sync even if the exact same directory/file has been uploaded before."
+fi
 
 # check if we set bucket name in the command line/as parameter
 if [ -n "$bucket" ]; then
@@ -136,7 +166,7 @@ for bckp_main in ${dirs[@]}; do
         # Note: I wasn't able to do this comparison using hashes (md5, sha1, sha256) - every compression the tar.gz had different hash
         dirsize=`du -b -s $dir | cut -f 1`
 
-        if `cat $manifest | grep -w "s3://${bucket}" | grep -w $dir | tail -1 | grep -q -w $dirsize`; then # Check if the last backed up directory had the same exact size
+        if [ "$force" == "false" ] && `cat $manifest | grep -w "s3://${bucket}" | grep -w $dir | tail -1 | grep -q -w $dirsize`; then # Check if the last backed up directory had the same exact size
             echo "Warning: $dir has been already uploaded before (same file_name and dir_size); not going to sync."
         else
             echo "Compressing: $dir"

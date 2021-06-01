@@ -1,7 +1,0 @@
-2020-08-29 21:44:04       3632 all/Log.out.tar.gz
-2020-08-29 21:38:07        307 all/analysis.tar.gz
-2020-08-29 21:42:39 3354710201 all/data.tar.gz
-2020-08-29 21:44:03        298 all/dev.tar.gz
-2020-08-29 21:44:05        879 all/run.tar.gz
-2020-08-29 21:44:06       1788 panos-starchimeric.s3-backup-manifest.log
-2020-08-29 21:44:08       8243 s3-sync-general.sh

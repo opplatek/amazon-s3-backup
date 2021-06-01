@@ -1,6 +1,6 @@
 # Amazon S3 backup
 ## Simple Amazon S3 backup
-The main idea here is to backup only changed directories. If the directory has been changed is determined simply on its size in bytes. We can have a situation when the bytes are exactly the same but let's hope this doesn't happen that often. 
+The main idea here is to backup only changed files/directories. If the file/directory has been changed is determined simply on its **size in bytes**. We can have a situation when the bytes are exactly the same but let's hope this doesn't happen that often. You can also specify `--force` to force upload no matter what. This might be useful when you uploaded the file/directory previously but for example misplaced it to wrong directory. In this case, the logs will *remember* sucesfull upload and won't reupload the same file/directory again unless `--force`` is specified.
 
 All the information about the uploaded backup is stored in manifest file which help us to avoid unecessary compressing of directories already uploaded before.
 
@@ -20,10 +20,10 @@ The `s3-sync-data.config` contains the _parent_ directory, subdirectories to bac
 8. Clean.
 
 ### Lifecycle rules
-1. By default, upload goes to --storage-class STANDARD. 
-2. Move the archive to Glacier after 3 days leaving some space to fix the upload if something does wrong. 
-3. Move non-current version to Deep Glacier after 90 days. 
-4. Delete non-current version after 180 days. 
+1. By default, upload goes to --storage-class STANDARD.
+2. Move the archive to Glacier after 3 days leaving some space to fix the upload if something does wrong.
+3. Move non-current version to Deep Glacier after 90 days.
+4. Delete non-current version after 180 days.
 
 * If applies, move the finished project to Deep Glacier manually
 
