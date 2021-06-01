@@ -8,4 +8,5 @@ tmp
 tmp/
 list
 glacier-files.txt
-s3_backup
+s3_backup/
+trash/
