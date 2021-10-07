@@ -153,37 +153,37 @@ echo "Analysis"
 echo "Samples"
 ./s3-sync-general.sh configs/pan.alexiou/s3-sync-samples.miwi.config
 
-echo "DDX3"
-echo "Data local"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.ddx3.config ddx3-data-local
-echo "Main"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.ddx3.config
-echo "Analysis"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.ddx3.config
-echo "Samples"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-samples.ddx3.config
-echo "Data"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-data.ddx3.config
+#echo "DDX3" # Set to archive on 06/02/2021 - not updated anymore & deleted locally
+#echo "Data local"
+#./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.ddx3.config ddx3-data-local
+#echo "Main"
+#./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.ddx3.config
+#echo "Analysis"
+#./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.ddx3.config
+#echo "Samples"
+#./s3-sync-general.sh configs/pan.alexiou/s3-sync-samples.ddx3.config
+#echo "Data"
+#./s3-sync-general.sh configs/pan.alexiou/s3-sync-data.ddx3.config
 
-echo "Small projects"
-echo "JWYG-Mov10CLIP"
-echo "Data local"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.small_projects-JWYG-Mov10CLIP.config jwyg-mov10clip-data-local
-echo "Data"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-data.small_projects-JWYG-Mov10CLIP.config
-echo "Main"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.small_projects-JWYG-Mov10CLIP.config
-echo "Analysis"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.small_projects-JWYG-Mov10CLIP.config
-echo "Samples"
-./s3-sync-general.sh configs/pan.alexiou/s3-sync-samples.small_projects-JWYG-Mov10CLIP.config
-#echo "KE-Mov10CLIP" # Set to archive on 05/27/2021 - not updated anymore
+#echo "Small projects"
+#echo "JWYG-Mov10CLIP" # Set to archive on 06/01/2021 - not updated anymore & deleted locally
+#echo "Data local"
+#./s3-sync-general.sh configs/pan.alexiou/s3-sync-data-local.small_projects-JWYG-Mov10CLIP.config jwyg-mov10clip-data-local
+#echo "Data"
+#./s3-sync-general.sh configs/pan.alexiou/s3-sync-data.small_projects-JWYG-Mov10CLIP.config
+#echo "Main"
+#./s3-sync-general.sh configs/pan.alexiou/s3-sync-main.small_projects-JWYG-Mov10CLIP.config
+#echo "Analysis"
+#./s3-sync-general.sh configs/pan.alexiou/s3-sync-analysis.small_projects-JWYG-Mov10CLIP.config
+#echo "Samples"
+#./s3-sync-general.sh configs/pan.alexiou/s3-sync-samples.small_projects-JWYG-Mov10CLIP.config
+#echo "KE-Mov10CLIP" # Set to archive on 05/27/2021 - not updated anymore & deleted locally
 #./s3-sync-general.sh configs/pan.alexiou/s3-sync-all.small_projects-KE-Mov10CLIP.config
-#echo "star_chimeric" # Set to archive on 05/27/2021 - not updated anymore
+#echo "star_chimeric" # Set to archive on 05/27/2021 - not updated anymore & deleted locally
 #./s3-sync-general.sh configs/pan.alexiou/s3-sync-all.small_projects-star_chimeric.config
-#echo "m1A_peaks" # Set to archive on 05/27/2021 - not updated anymore
+#echo "m1A_peaks" # Set to archive on 05/27/2021 - not updated anymore & deleted locally
 #./s3-sync-general.sh configs/pan.alexiou/s3-sync-all.small_projects-m1A_peaks.config
-#echo "chimeric_reads_paper" # Set to archive on 05/27/2021 - not updated anymore
+#echo "chimeric_reads_paper" # Set to archive on 05/27/2021 - not updated anymore & deleted locally
 #echo "Data"
 #./s3-sync-general.sh configs/pan.alexiou/s3-sync-data.small_projects-chimeric_reads_paper.config
 #echo "Main"
