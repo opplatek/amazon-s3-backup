@@ -10,7 +10,8 @@
 
 # Default variables if they are not set in a config file
 author="jan"
-class="STANDARD" # ["GLACIER"|"STANDARD"]
+sync_dir_main="/home/joppelt/playground/s3_backup" # Main sync directory we'll use as temporary directory for archiving and upload; make sure there is enough space
+class="STANDARD" # ["GLACIER"|"STANDARD"] default/starting AWS class
 upload="cp" # ["sync"|"cp"] sync to upload only new/change files (slower but doesn't upload all) or cp to upload all the files (faster but uploads all)
 version="true" # ["true"|"false"] # keep all file versions (with lifecycle config)
 keep="false" # ["true"|"false"] # keep all file versions forever
@@ -85,7 +86,7 @@ re="^[0-9]+([.][0-9]+)?$" # For testing a number values with decimal points http
 for bckp_main in ${dirs[@]}; do
     echo "Making backup of dir: ${main_dir}/${bckp_main}"
 
-    sync_dir="$(pwd)/s3_backup/$bckp_main"
+    sync_dir="$sync_dir_main/$bckp_main"
 
     #bckp=$(ls -d $main_dir/${bckp_main}/* | tr '' '\n' | grep -v external | sed "s|${main_dir}/||g")
 #    if [ $bckp_main == "data/illumina" ] || [ $bckp_main == "data/minion" ]; then
